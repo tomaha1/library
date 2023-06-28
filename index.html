@@ -5,7 +5,30 @@
 		<title>Library</title>
 		<link rel="stylesheet" href="styles.css">
 	</head>
-	
+		<!-- A button to open the popup form -->
+		<button class="open-button" onclick="openForm()">Open Form</button>
+
+		<!-- The form -->
+		<div class="form-popup" id="myForm">
+			<!-- Zmienic action -->
+  			<form class="form-container" id="new_book">
+
+    		<label for="author"><b>Author</b></label>
+    		<input type="text" placeholder="Author name" id="author" required>
+
+    		<label for="title"><b>Title</b></label>
+    		<input type="text" placeholder="Title of the book" id="title" required>
+
+			<label for="pages"><b>Number of pages</b></label>
+    		<input type="text" placeholder="Number of pages" id="pages" required>
+
+			<label for="read"><b>Read?</b></label>
+    		<input type="text" placeholder="Read?" id="read" required>
+
+    		<button type="submit" class="btn">Submit</button>
+    		<button type="cancel" class="btn cancel" onclick="closeForm()">Cancel</button>
+  			</form>
+		</div>
 	<body>
 
 		<script src="script.js" defer></script>
