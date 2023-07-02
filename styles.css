@@ -8,7 +8,6 @@
   border: none;
   cursor: pointer;
   opacity: 0.8;
- 
   width: 280px;
 }
 
@@ -16,8 +15,6 @@
 .form-popup {
   display: none;
   position: fixed;
-  bottom: 0;
-  right: 15px;
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
@@ -31,7 +28,7 @@
 
 /* Full-width input fields */
 .form-container input[type=text], .form-container input[type=password] {
-  width: 100%;
+  width: 270px;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
@@ -64,4 +61,25 @@
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+table {
+  margin-top: 10px;
+  border-collapse: collapse;
+  border: 2px solid rgb(200,200,200);
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: 10px 20px;
+}
+
+tr :nth-child(3) {
+  text-align: end;
+}
+
+tr :nth-child(5) {
+  text-align: center;
 }

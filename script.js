@@ -1,28 +1,20 @@
 let myLibrary = [];
+let Book1;
+const para = document.getElementById("table");
 
 const newBook = document.getElementById('new_book');
-const author = newBook.elements[0].value;
-const title = newBook.elements[1].value;
-const pages = newBook.elements[2].value;
-const read = newBook.elements[3].value;
-
-//jesli powyzsze nie bedzie dzialac to zmienic powyzej nazwy (z dopisanymi cyframi) i zastosowac ponizsze
-//let author = author0.value;
-//let title = title1.value;
-//let pages = pages2.value;
-//let read = read3.value;
 
 class Book {
     constructor(author, title, pages, read) {
-        this.author = author;
-        this.title = title;
-        this.pages = pages;
-        this.read = read;
+        this.Author = author;
+        this.Title = title;
+        this.Pages = pages;
+        this.Read = read;
     }
 }
 
-function addBookToLibrary() {
-  myLibrary.push(Book);
+function addBookToLibrary(ksiazka) {
+  myLibrary.push(ksiazka);
 }
 
 function openForm() {
@@ -46,6 +38,47 @@ function openForm() {
     // if valid, submit the form.
     //if (nameValid && emailValid) {
     //  alert("Demo only. No form was posted.");
+    Book1 = new Book(newBook.elements[0].value, newBook.elements[1].value, newBook.elements[2].value, newBook.elements[3].value);
+    addBookToLibrary(Book1);
+    add_line(newBook.elements[0].value, newBook.elements[1].value, newBook.elements[2].value, newBook.elements[3].value);
+    //document.getElementById("demo").innerText = `$myLibrary[0].author`;
+    console.log(myLibrary[0].Author);
+    closeForm();
     }
   //}
   );
+
+  //funkcja tworzaca kolejne wiersze tabeli
+  function add_line(author, title, pages, read) {
+
+    const nextLine = document.createElement("tr");
+    para.appendChild(nextLine);
+
+    const aut = document.createElement("td");
+    const auttext = document.createTextNode(author);
+    aut.appendChild(auttext);
+    nextLine.appendChild(aut);
+
+    const tit = document.createElement("td");
+    const tittext = document.createTextNode(title);
+    tit.appendChild(tittext);
+    nextLine.appendChild(tit);
+
+    const num = document.createElement("td");
+    const numtext = document.createTextNode(pages);
+    num.classList.add("numbers");
+    num.appendChild(numtext);
+    nextLine.appendChild(num);
+
+    const rea = document.createElement("td");
+    const reatext = document.createTextNode(read);
+    rea.appendChild(reatext);
+    nextLine.appendChild(rea);
+
+    const rem = document.createElement("td");
+    const remtext = document.createTextNode('X');
+    rem.classList.add("remove");
+    rem.appendChild(remtext);
+    nextLine.appendChild(rem);
+
+  }
