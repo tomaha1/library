@@ -1,5 +1,6 @@
 let myLibrary = [];
 let Book1;
+let x = 0;
 const para = document.getElementById("table");
 
 const newBook = document.getElementById('new_book');
@@ -42,17 +43,17 @@ function openForm() {
     addBookToLibrary(Book1);
     add_line(newBook.elements[0].value, newBook.elements[1].value, newBook.elements[2].value, newBook.elements[3].value);
     //document.getElementById("demo").innerText = `$myLibrary[0].author`;
-    console.log(myLibrary[0].Author);
     closeForm();
-    }
+    })  
   //}
-  );
+  ;
 
   //funkcja tworzaca kolejne wiersze tabeli
   function add_line(author, title, pages, read) {
-
+    
     const nextLine = document.createElement("tr");
     para.appendChild(nextLine);
+    nextLine.dataset.row = x;
 
     const aut = document.createElement("td");
     const auttext = document.createTextNode(author);
@@ -76,9 +77,32 @@ function openForm() {
     nextLine.appendChild(rea);
 
     const rem = document.createElement("td");
+    const rembutton = document.createElement("button");
     const remtext = document.createTextNode('X');
     rem.classList.add("remove");
-    rem.appendChild(remtext);
+    rem.appendChild(rembutton);
+    rembutton.dataset.row = x;
+    rembutton.appendChild(remtext);
     nextLine.appendChild(rem);
 
+    rembutton.addEventListener("click", function (event) {
+      const przycisk = event.target.dataset.row;
+
+      console.log(event.target.dataset.row);
+      const iden = `[data-row="${event.target.dataset.row}"]`;
+      const dousuniecia = document.querySelector(`${iden}`);
+      dousuniecia.remove();
+      delete myLibrary[przycisk];
+      console.log(myLibrary);
+    })
+    x++;
   }
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
